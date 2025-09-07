@@ -2,7 +2,7 @@ import geopandas as gpd
 # path = caminho // gdf = GeoDataFrame
 
 # Unidades de Conservação
-uc_path = 'data/unidades_conservacao/unidades_conservacao.shp'
+uc_path = 'data/unidades_conservacao/unidades_conservacao_simplificado_50m.shp'
 uc_gdf = gpd.read_file(uc_path)
 
 # Municípios
@@ -31,7 +31,7 @@ m = folium.Map(
     zoom_start=7, 
     tiles='OpenStreetMap')
 
-# Adicionar tiles alternativos
+# Adicionar tiles alternativos -- outros mapas base
 folium.TileLayer(
         tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         attr='Esri',
@@ -91,7 +91,7 @@ print("Camadas de Unidades de Conservação adicionadas!")
 folium.GeoJson(
     municipios_gdf,
     name='Municípios',
-    style_function=lambda x: {'fillColor': 'gray', 'color': 'gray', 'weight': 0.3, 'fillOpacity': 0},
+    style_function=lambda x: {'fillColor': 'gray', 'color': 'gray', 'weight': 0.2, 'fillOpacity': 0},
     tooltip=folium.GeoJsonTooltip(fields=['NOME'], aliases=['Município:'])
 ).add_to(m)
 
