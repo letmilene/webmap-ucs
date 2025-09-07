@@ -2,7 +2,7 @@ import geopandas as gpd
 # path = caminho // gdf = GeoDataFrame
 
 # Unidades de Conservação
-uc_path = 'data/unidades_conservacao/unidades_conservacao_simplificado_50m.shp'
+uc_path = 'data/unidades_conservacao/unidades_conservacao_simplificado_100m.shp'
 uc_gdf = gpd.read_file(uc_path)
 
 # Municípios
@@ -99,7 +99,7 @@ folium.GeoJson(
 folium.GeoJson(
     rios_gdf,
     name='Rios',
-    style_function=lambda x: {'color': 'blue', 'weight': 0.3},
+    style_function=lambda x: {'color': 'blue', 'weight': 0.2},
     tooltip=folium.GeoJsonTooltip(fields=['nome'], aliases=['Rio:'])
 ).add_to(m)
 
