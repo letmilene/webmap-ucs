@@ -10,7 +10,7 @@ municipios_path = 'data/municipios/municipios.shp'
 municipios_gdf = gpd.read_file(municipios_path)
 
 # Rios
-rios_path = 'data/rios/rios.shp'
+rios_path = 'data/rios/rios_dissolve.shp'
 rios_gdf = gpd.read_file(rios_path)
 
 print("Shapefiles carregados com sucesso!")
@@ -91,7 +91,7 @@ print("Camadas de Unidades de Conservação adicionadas!")
 folium.GeoJson(
     municipios_gdf,
     name='Municípios',
-    style_function=lambda x: {'fillColor': 'gray', 'color': 'gray', 'weight': 0.2, 'fillOpacity': 0},
+    style_function=lambda x: {'fillColor': 'lightgray', 'color': 'lightgray', 'weight': 0.5, 'fillOpacity': 0},
     tooltip=folium.GeoJsonTooltip(fields=['NOME'], aliases=['Município:'])
 ).add_to(m)
 
@@ -99,7 +99,7 @@ folium.GeoJson(
 folium.GeoJson(
     rios_gdf,
     name='Rios',
-    style_function=lambda x: {'color': 'blue', 'weight': 0.2},
+    style_function=lambda x: {'color': 'lightblue', 'weight': 0.5},
     tooltip=folium.GeoJsonTooltip(fields=['nome'], aliases=['Rio:'])
 ).add_to(m)
 
